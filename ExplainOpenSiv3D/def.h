@@ -23,7 +23,7 @@ public:
 	void draw() const override;
 
 private:
-	const Font font=Font(50);
+	const Font font = Font(50);
 };
 
 struct Shape {
@@ -50,9 +50,20 @@ private:
 	const Font font = Font(50);
 };
 
+
+
 class Physics : public App::Scene
 {
 public:
+	// 2D 物理演算のワールド
+	P2World world{980.0};
+
+	// 地面
+	P2Body ground;
+
+	// 物体
+	Array<P2Body> bodies;
+
 	Physics(const InitData& init);
 
 	// 更新関数
